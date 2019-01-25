@@ -12,6 +12,7 @@ public class Person {
         logger.warn("Warn message");
         logger.error("Error message");
         logger.error("Error message 2");
+        logger.error("Error message 3");
         logger.fatal("Fatal message");
 
     }
