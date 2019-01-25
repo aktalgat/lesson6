@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+    <Appenders>
+        #Апендер для вывода логов в консоль
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %d{Z} %-5p %c{1} [%t] - %m%n"/>
+        </Console>
+        #Апендер для вывода логов в файл
+        <RollingFile name="app" fileName="app.log"
+                     filePattern="app-%d{MM-dd-yyyy}-%i.log">
+            <LevelRangeFilter minLevel="DEBUG" maxLevel="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d %d{Z} [%t] %-5p (%F:%L) - %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="person" fileName="person.log"
+                     filePattern="person-%d{MM-dd-yyyy}-%i.log">
+            <LevelRangeFilter minLevel="WARN" maxLevel="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d %d{Z} [%t] %-5p (%F:%L) - %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="kg.geektech.App">
+            <AppenderRef ref="app"/>
+        </Logger>
+
+        <Logger name="kg.geektech.Person">
+            <AppenderRef ref="person"/>
+        </Logger>
+
+        <Root level="all">
+            <AppenderRef ref="console"/>
+        </Root>
+
+    </Loggers>
+    
+</Configuration>
