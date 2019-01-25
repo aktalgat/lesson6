@@ -13,6 +13,7 @@ public class App {
         logger.debug("Пример debug сообщения");
         logger.info("Пример info сообщения");
         logger.warn("Пример warn сообщения");
+        logger.warn("Пример warn сообщения");
         logger.error("Пример error сообщения");
         logger.fatal("Пример fatal сообщения");
     }
